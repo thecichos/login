@@ -1,0 +1,26 @@
+.margin {
+	margin: 5px;
+}
+ul {
+	width: 600px;
+	list-style: none;
+}
+li {
+	border: solid black 2px;
+	padding: 2px;
+	margin: 5px;
+}
+li label {
+	padding: 2px;
+	border: solid black 2px;
+}
+ul > .newP {
+	width: 50%;
+}
+.newPassword {
+	padding: 50px;
+}
+#time {
+	height: 100px;
+	width: 100px;
+}

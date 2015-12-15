@@ -4,37 +4,72 @@
 <head>
 	<link rel="stylesheet" href="css/_main.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+	<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
 	<script src="js/_main.js"></script>
 	<meta charset="utf-8">
 	<title></title>
 </head>
 
 <body>
-	<div class="user">
+	<div class="loggedIn">
+		<p class="user"></p>
+		<button type="button" name="showUser" onclick="showUser()" id="showUser">expand user menu</button>
+	</div>
+	<div class="showUser">
+		<ul>
+			<li>
+				<label class="margin">username</label>
+				<p class="user"></p>
+			</li>
+			<li>
+				<label class="margin">password</label>
+				<div class="newPassword">
+					<ul>
+						<li class="newP">
+							<label>enter your old password</label>
+							<p><input type="password" autocomplete="off"></p>
+						</li>
+						<li class="newP">
+							<label>enter your new password</label>
+							<p><input type="password" autocomplete="off"></p>
+						</li>
+						<li class="newP">
+							<label>enter your new password again</label>
+							<p><input type="password" autocomplete="off"></p>
+						</li>
+					</ul>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<div id="user">
 		<span>Do you have a user?</span>
 		<button id="userYes" onclick="userYes()">yes</button>
 		<button id="userNo" onclick="userNo()">no</button>
 	</div>
-	<div class="login">
+	<div id="loginForm">
 		<span>enter your username</span>
-		<input type="text" name="username" id="username-login" class="text" onkeyup="test(this.id)">
+		<input type="text" name="username" id="username-login" class="text">
 		<br>
 		<span>enter your password</span>
-		<input type="password" name="password" id="password-login" class="text" onkeyup="test(this.id)">
+		<input type="password" name="password" id="password-login" class="text">
 		<br>
 		<input type="button" name="login" id="login" value="login" onclick="test(this.id, true)">
 	</div>
-	<div class="signUp">
+	<div id="signUpForm">
 		<span>enter your username</span>
-		<input type="text" name="username" id="username-signUp" class="text" onkeyup="test(this.id, false)">
+		<input type="text" name="username" id="username-signUp" class="text">
 		<br>
 		<span>enter your password</span>
-		<input type="password" name="password" id="password-signUp" class="text" onkeyup="test(this.id, false)">
+		<input type="password" name="password" id="password-signUp" class="text">
 		<br>
 		<span>enter your password again</span>
-		<input type="password" name="password" id="password-signUp2" class="text" onkeyup="test(this.id, false)">
+		<input type="password" name="password" id="password-signUp2" class="text">
 		<br>
 		<input type="button" name="signUp" id="signUp" value="sign up" onclick="test(this.id, true)">
+	</div>
+	<div class="showAll">
+
 	</div>
 </body>
 
