@@ -15,7 +15,7 @@
 		$sql = "INSERT INTO users (Username, Password)
 		VALUES ('$user', '$pass')";
 		if ($conn->query($sql) === TRUE) {
-			echo $user;
+			echo "user created";
 		} else {
 			echo "Error: " . $sql . "<br>" . $conn->error;
 		}

@@ -4,9 +4,38 @@ $(document).ready(function() {
 	$("#signUpForm").hide();
 	$(".showUser").hide();
 	$("#showUser").hide();
-
+	$(".newPassword").hide();
 	$(".user").text("not logged in");
 });
+
+
+function showpassword() {
+	console.log($(".showUser").css('display'));
+	if ($(".newPassword").css("display") == "none") {
+		$(".newPassword").show();
+	} else {
+		$(".newPassword").hide();
+	}
+}
+
+function changePassword() {
+	var string = "username=" + window.sessionStorage.Username + "&oldpassword=" + $("#oldPassword").val() + "&newpassword=" + $("#newPassword").val() + "&newpasswordagain=" + $("#newPasswordAgain").val();
+	$.ajax({
+			url: '/users/php/Newpassword.php',
+			type: 'POST',
+			data: string
+		})
+		.done(function() {
+			console.log("success");
+		})
+		.fail(function() {
+			console.log("error");
+		})
+		.always(function() {
+			console.log("complete");
+		});
+
+}
 // setInterval(changeColor, 1000);
 //
 // function changeColor() {
@@ -30,23 +59,29 @@ function userYes() {
 	$("#loginForm").show();
 }
 
-function userNo() {
-	$("#user").hide();
-	$("#signUpForm").show();
+function userNo(okay) {
+	if (okay == true) {
+		$("#loginForm").hide();
+		$("#user").hide();
+		$("#signUpForm").show();
+	} else {
+		$("#user").hide();
+		$("#signUpForm").show();
+	}
 }
 
 function logIn(result) {
-	$('.user').text('logged in as ' + result)
+	window.sessionStorage.Username = result
+	$('.user').text('logged in as ' + window.sessionStorage.Username)
 	$('#username').val(result);
 	$("#loginForm").hide();
-	$("#showUser").show();
+	window.location = "/users/php/userAdmin.php";
 }
 
 function signUp(result) {
 	if (result == "enter another username") {
 		alert(result);
 	} else {
-		alert("you signed up as " + result);
 		$("#loginForm").show();
 		$("#signUpForm").hide();
 	}
@@ -57,7 +92,6 @@ function showUser() {
 	if ($(".showUser").css("display") == "none") {
 		$(".showUser").show();
 		$("#showUser").text("collapse user menu");
-
 	} else {
 		$(".showUser").hide();
 		$("#showUser").text("expand user menu");
@@ -65,9 +99,8 @@ function showUser() {
 }
 
 function test(id, bool) {
-	console.log($('#' + id).parent().attr('id'));
 	var x = [];
-	$('#' + id).parent().children('.text').each(function() {
+	$('#' + id).parent().parent().parent().children().children().children('.text').each(function() {
 		if ($(this).val() == "") {
 			alert("enter something in " + $(this).attr('id'));
 		} else {
@@ -88,21 +121,33 @@ function test(id, bool) {
 	}
 }
 
-
 function ajax(id, username, password) {
 	var x = "*"
-	console.log(id, username, password.replace(/[A-Z a-z 0-9]/g, x));
+	if (window.sessionStorage !== "undefined") {
+		window.sessionStorage.Username = username;
+	} else {
+		console.log("no support for web storage");
+	}
 	var string = "username=" + username + "&password=" + password;
 	$.ajax({
-			url: 'php/' + id + '.php',
+			url: '/users/php/' + id + '.php',
 			type: 'POST',
 			data: string
 		})
 		.done(function(result) {
 			if (id == "login") {
-				logIn(result);
+				if (result == "logged in") {
+					logIn(username);
+				} else {
+					$(".loggedIn").text("wrong password, would you like to create a user?")
+					$(".loggedIn").append("<button id='userNo' onclick='userNo(true)'>yes</button>")
+				}
 			} else {
-				signUp(result);
+				if (result == "user created") {
+					signUp(result);
+				} else {
+					$(".loggedIn").text("username already taken")
+				}
 			}
 		})
 		.fail(function() {
