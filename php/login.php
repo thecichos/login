@@ -13,7 +13,7 @@
 	if ($result->num_rows > 0) {
 		while ($row = $result->fetch_assoc()) {
 			if (password_verify($pass, $row["Password"])) {
-				echo $user;
+				echo "logged in";
 			} else {
 				echo "wrong password";
 			}
