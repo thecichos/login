@@ -1,8 +1,8 @@
 <?php
 	$servername = "localhost";
-	$username = "users";
-	$password = "123456";
-	$dbName = "users";
+	$username = "root";
+	$password = "ap10va4you";
+	$dbName = "acari";
 	$conn = new mysqli($servername,$username,$password,$dbName);
 
 	$user = mysqli_real_escape_string($conn, $_POST["username"]);

@@ -1,0 +1,9 @@
+{
+  "name": "Tweet_Counter",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-watch": "*"
+  }
+}

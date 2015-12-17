@@ -1,0 +1,96 @@
+//Imports
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700)
+
+//Font weights
+$thin:                  100
+$light:                 300
+$regular:               400
+$medium:                500
+$bold:                  700
+
+//Base font
+$base-font-family:      'Roboto', sans-serif
+$base-font-size:        16px
+$base-font-weight:      400
+$base-line-height:      1.4
+
+//Headings
+$title-font-size: 42px
+$description-font-size: 32px
+$subtitle-font-size: 34px
+$header-font-size: 24px
+
+//Item height
+$page-header-height:    250px
+
+//Border radius
+$base-radius: 3px
+
+//Colors
+$maco: rgba(149,21,86,0.8)
+$hico: #B51B91
+$daco: #1c1e22
+$black: #272727
+$white: #fff
+$dimwhite: rgba(255,255,255,.8)
+$gray: rgba(0,0,0,.3)
+$dimgray: rgba(0,0,0,.1)
+
+*
+    -webkit-outline: 0
+    -moz-outline: 0
+    -o-outline: 0
+    outline: 0
+    text-decoration: none
+    text-shadow: rgba(0,0,0,.01) 0 0 1px
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+input:focus, input:hover, textarea:focus, textarea:hover
+    -webkit-outline: 0
+    -moz-outline: 0
+    -o-outline: 0
+    outline: 0
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, 
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, 
+font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, 
+dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, 
+tfoot, thead, tr, th, td 
+    margin: 0
+    outline: 0
+    padding: 0
+    vertical-align: baseline
+
+    font-family: $base-font-family
+    font-size: $base-font-size
+    font-style: inherit
+    font-weight: $base-font-weight
+    line-height: $base-line-height
+
+    border: 0
+
+html, body
+    -webkit-text-size-adjust: 100%
+    -ms-text-size-adjust: 100% 
+    margin: 0
+    padding: 0
+
+body
+    background-color: $dimgray
+    overflow-x: hidden
+
+a
+    color: $black
+    text-decoration: none
+    transition: all .15s ease
+    
+nav ul li
+    list-style: none
+
+.ghost
+    opacity: 0
+
+.super-ghost
+    display: none
