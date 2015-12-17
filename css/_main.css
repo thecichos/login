@@ -14,7 +14,7 @@ li label {
 	padding: 2px;
 	border: solid black 2px;
 }
-ul > .newP {
+ul .newP {
 	width: 50%;
 }
 .newPassword {
@@ -23,4 +23,14 @@ ul > .newP {
 #time {
 	height: 100px;
 	width: 100px;
+}
+#loginForm, #signUpForm, .userInput{
+	height: 50px;
+	top: 20px;
+}
+.text {
+	float: right;
+}
+.container {
+	display: flex;
 }
