@@ -8,6 +8,8 @@ $(document).ready(function() {
 	$(".user").text("not logged in");
 });
 
+var __root = location.protocol + '//' + location.host + "/login";
+
 
 function showpassword() {
 	console.log($(".showUser").css('display'));
@@ -21,7 +23,7 @@ function showpassword() {
 function changePassword() {
 	var string = "username=" + window.sessionStorage.Username + "&oldpassword=" + $("#oldPassword").val() + "&newpassword=" + $("#newPassword").val() + "&newpasswordagain=" + $("#newPasswordAgain").val();
 	$.ajax({
-			url: '/users/php/Newpassword.php',
+			url: __root + '/php/Newpassword.php',
 			type: 'POST',
 			data: string
 		})
@@ -75,7 +77,7 @@ function logIn(result) {
 	$('.user').text('logged in as ' + window.sessionStorage.Username)
 	$('#username').val(result);
 	$("#loginForm").hide();
-	window.location = "/users/php/userAdmin.php";
+	window.location = __root + "/php/userAdmin.php";
 }
 
 function signUp(result) {
@@ -130,7 +132,7 @@ function ajax(id, username, password) {
 	}
 	var string = "username=" + username + "&password=" + password;
 	$.ajax({
-			url: '/users/php/' + id + '.php',
+			url: __root + '/php/' + id + '.php',
 			type: 'POST',
 			data: string
 		})
@@ -152,6 +154,7 @@ function ajax(id, username, password) {
 		})
 		.fail(function() {
 			console.log("error");
+			console.log(__root + "/php/login.php");
 		})
 		.always(function() {
 			console.log("complete");

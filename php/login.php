@@ -16,6 +16,7 @@
 				echo "logged in";
 			} else {
 				echo "wrong password";
+				echo error();
 			}
 		}
 	} else {
