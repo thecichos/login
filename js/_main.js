@@ -77,7 +77,7 @@ function logIn(result) {
 	$('.user').text('logged in as ' + window.sessionStorage.Username)
 	$('#username').val(result);
 	$("#loginForm").hide();
-	window.location = __root + "/view/userAdmin.php";
+	window.location = __root + "/userAdmin.php";
 }
 
 function signUp(result) {

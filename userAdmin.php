@@ -3,7 +3,7 @@
 	<li>logged in as<p id="username">
 		<script type="text/javascript">
 			$.ajax({
-				url: '../php/getUser.php',
+				url: 'php/getUser.php',
 				type: 'POST',
 				data: "username=" + window.sessionStorage.Username
 			})
