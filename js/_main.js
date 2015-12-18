@@ -77,7 +77,7 @@ function logIn(result) {
 	$('.user').text('logged in as ' + window.sessionStorage.Username)
 	$('#username').val(result);
 	$("#loginForm").hide();
-	window.location = __root + "/php/userAdmin.php";
+	window.location = __root + "/view/userAdmin.php";
 }
 
 function signUp(result) {
@@ -154,7 +154,6 @@ function ajax(id, username, password) {
 		})
 		.fail(function() {
 			console.log("error");
-			console.log(__root + "/php/login.php");
 		})
 		.always(function() {
 			console.log("complete");

@@ -1,11 +1,8 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "ap10va4you";
-	$dbName = "acari";
-	$conn = new mysqli($servername,$username,$password,$dbName);
-	if ($conn->connect_error) {
-		echo "connection failed" . $conn->connect_error;
+	include "connection.php";
+
+	if ($_conn->_connect_error) {
+		echo "connection failed" . $_conn->connect_error;
 	}
 	echo "you haz success";
 		$sql = "CREATE TABLE users (
@@ -14,10 +11,10 @@
 			Password char(255) NOT NULL,
 			Email char(255) NOT NULL
 		)";
-		if ($conn->query($sql) === TRUE) {
+		if ($_conn->query($sql) === TRUE) {
 			echo "Table created";
 		} else {
-			echo "you haz error " . $conn->error;
+			echo "you haz error " . $_conn->error;
 		}
-	$conn->close();
+	$_conn->close();
  ?>

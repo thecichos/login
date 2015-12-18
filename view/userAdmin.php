@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" href="/users/css/_main.css">
+		<link rel="stylesheet" href="/login/css/_main.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 		<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
-		<script src="/users/js/_main.js"></script>
+		<script src="/login/js/_main.js"></script>
 		<title></title>
 	</head>
 	<body>
@@ -12,7 +12,7 @@
 	<li>logged in as<p id="username">
 		<script type="text/javascript">
 			$.ajax({
-				url: 'getUser.php',
+				url: '../php/getUser.php',
 				type: 'POST',
 				data: "username=" + window.sessionStorage.Username
 			})

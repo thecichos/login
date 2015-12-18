@@ -1,15 +1,11 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "ap10va4you";
-	$dbName = "acari";
-	$conn = new mysqli($servername,$username,$password,$dbName);
+	include "connection.php";
 
-	$user = mysqli_real_escape_string($conn, $_POST["username"]);
-	$pass = mysqli_real_escape_string($conn, $_POST["password"]);
+	$user = mysqli_real_escape_string($_conn, $_POST["username"]);
+	$pass = mysqli_real_escape_string($_conn, $_POST["password"]);
 
 	$sql = "SELECT * FROM users WHERE Username = '$user'";
-	$result = $conn->query($sql);
+	$result = $_conn->query($sql);
 	if ($result->num_rows > 0) {
 		while ($row = $result->fetch_assoc()) {
 			if (password_verify($pass, $row["Password"])) {
@@ -22,6 +18,6 @@
 	} else {
 		echo "0 result";
 	}
-	$conn->close();
+	$_conn->close();
 
  ?>

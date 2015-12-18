@@ -1,7 +1,3 @@
-<?php
-    
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,3 +11,4 @@
         <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
         <script src="js/_main.js"></script>
     </head>
+    <body>
