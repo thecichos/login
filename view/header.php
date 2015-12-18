@@ -9,6 +9,6 @@
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
         <script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js"></script>
-        <script src="js/_main.js"></script>
+        <script src="../js/_main.js"></script>
     </head>
     <body>
